@@ -159,7 +159,7 @@
 				border-2 border-[#97ef3a] bg-[#13152b]
 				shadow-md"
 					>
-						<img src={p.image} alt={'image of ' + p.name} class="rounded-2xl" />
+						<img src={p.image} alt={'image of ' + p.name} loading="lazy" class="rounded-2xl" />
 						<p class="text-[#97ef3a] text-2xl">{p.name}</p>
 						<p class="text-[#00e5ff]">{p.species}</p>
 					</div>
