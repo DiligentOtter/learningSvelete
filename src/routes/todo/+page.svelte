@@ -1,5 +1,11 @@
 <script lang="ts">
-	let cantTareas: number = $state(0);
+  import { fly } from "svelte/transition";
+  import { bounceOut } from "svelte/easing";
+
+	let listaTasks: string[] = $state([]);
+	let cantTareas: number = $derived(listaTasks.length);
+	let tarea: string = $state('');
+	
 	let msg: string = $derived(
 		cantTareas === 0
 			? 'Con que comenzamos hoy?'
@@ -7,12 +13,10 @@
 				? 'Estas atareado hoy, eh'
 				: 'Vamos con todo!'
 	);
-
-	let listaTasks: string[] = $state([]);
-
-	let tarea: string = $state('');
-
-	function deleteTask(index: number) {}
+	function deleteTask(index: number) {
+		listaTasks = listaTasks.filter((_, i) => i !== index);
+		cantTareas--;
+	}
 	function nuevaTarea(newTask: string) {
 		listaTasks = [...listaTasks, newTask];
 		tarea = '';
@@ -51,7 +55,7 @@
 				class="flex items-center
 				justify-center text-center h-8 w-8
 				font-bold text-xl border-2 rounded-full
-				pb-0.5 bg-amber-500 border-blue-400 shadow"
+				pb-0.5 bg-amber-500 shadow hover:bg-amber-700"
 			>
 				+
 			</button>
@@ -59,8 +63,8 @@
 	</div>
 
 	<div class="flex flex-col gap-2 mt-4 w-full max-w-4xl">
-		{#each listaTasks as t, i (i)}
-			<div class="p-4 bg-white rounded-xl shadow-sm flex items-center gap-3">
+		{#each listaTasks as t, i (t)}
+			<div transition:fly={{ y: -50, duration: 500, easing: bounceOut }} class="p-4 bg-white rounded-xl shadow-sm flex items-center gap-3">
 				<input type="checkbox" class="rounded-full" onclick={() => deleteTask(i)} />
 				<span class="text-gray-700">{t}</span>
 			</div>
