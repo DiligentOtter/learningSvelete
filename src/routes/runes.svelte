@@ -1,5 +1,5 @@
 <script lang="ts">
-    /* Existen varios tipod de runas
+    /* Existen varios tipos de runas
         Tenemos $state(), permite declarar una variable como reactiva
         La cual es solo reactiva a reasignaciones, sin embargo tambien es
         sensible a mutaciones, algo no muy recomendado, pero posible
