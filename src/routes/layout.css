@@ -1,2 +1,7 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
+
+@theme {
+	--font-sans: 'Plus Jakarta Sans', sans-serif;
+	--font-mono: 'Fira Code', monospace;
+}

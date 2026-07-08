@@ -8,35 +8,33 @@
 	);
 </script>
 
-<main class="bg-amber-200 min-h-screen
-        flex flex-col 
-        justify-center items-center p-4">
+<main
+	class=" flex flex-col min-h-screen justify-center items-center p-4 gap-2 
+	bg-amber-200 "
+>
 	<div
-		class="flex flex-row
-		justify-center p-8 rounded-3xl
+		class="flex items-center justify-center p-8 rounded-3xl
 	    text-center max-w-3xl
-		border-black border-4 {bgcolor}"
+		border-black border-2 {bgcolor}"
 	>
-		<div class="p-4">
-			<button
-				onclick={() => numero--}
-				disabled={numero <= 0}
-				class="p-2 border-b-black border-2
+		<button
+			onclick={() => numero--}
+			disabled={numero <= 0}
+			class="h-max w-max p-2 shadow-2xl shadow-black
 				max-w-fit bg-blue-300 rounded-xl
-				disabled:opacity-45 hover:bg-blue-600">-</button
-			>
-		</div>
-		<div class="p-5 font-bold text-2xl font-mono">{numero}</div>
-		<div class="p-4">
-			<button
-				onclick={() => numero++}
-				disabled={numero >= 10}
-				class="max-w-fit border-2
-				border-b-black bg-blue-300
-				rounded-xl p-2 disabled:opacity-45
-			    hover:bg-blue-600">+</button
-			>
-		</div>
+				disabled:opacity-45 hover:bg-blue-600"
+		> - </button>
+
+		<div class="p-5 font-bold text-2xl">{numero}</div>
+
+		<button
+			onclick={() => numero++}
+			disabled={numero >= 10}
+			class="h-max w-max p-2 rounded-xl
+			shadow-2xl shadow-black
+				bg-blue-300 disabled:opacity-45
+			    hover:bg-blue-600"
+			> + </button>
 	</div>
 	<div class="bg-white rounded-2xl p-3 max-w-fit text-2xl font-bold">
 		{estadoMunicion}
